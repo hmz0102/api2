@@ -1,5 +1,5 @@
-import 'package:api/controller.dart';
-import 'package:api/ghaliah_home_page.dart';
+import 'package:api/api_controller/controller.dart';
+import 'package:api/screens/ghaliah_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
