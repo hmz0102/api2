@@ -234,15 +234,9 @@ class _GhaliahHomepageState extends State<GhaliahHomepage> {
                         });
                       },
                       itemBuilder: (BuildContext context) {
-                        return [
-                          'All',
-                          'Fresh',
-                          'In Training',
-                          'Rookie',
-                          'Champion',
-                          'Ultimate',
-                          'Mega',
-                        ].map((String lvl) {
+                        return ['All', ...digimonController.levels].map((
+                          String lvl,
+                        ) {
                           return PopupMenuItem<String>(
                             value: lvl,
                             child: Text(

@@ -9,6 +9,7 @@ import 'package:flutter/widgets.dart';
 class DigimonController extends ChangeNotifier {
   bool loader = false;
   List<DigimonModel> digimonList = [];
+  List<String> levels = [];
   DigimonApi api = DigimonApi();
 
   void fetchDigimon(BuildContext context) async {
@@ -18,6 +19,11 @@ class DigimonController extends ChangeNotifier {
 
       digimonList = await api.fetchDigimonApi();
       log("digimon list in controller: ${digimonList.length} ");
+
+      // Extract unique levels dynamically from API response
+      final uniqueLevels = digimonList.map((d) => d.level).toSet().toList();
+      uniqueLevels.removeWhere((l) => l.isEmpty);
+      levels = uniqueLevels;
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
